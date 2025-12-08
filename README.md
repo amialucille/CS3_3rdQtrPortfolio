@@ -23,7 +23,11 @@ Explore biomes, buildings, mobs, and materials from each dimension while learnin
 |2 | **Overworld**  | Biomes (forest, desert, plains, mountains), Villages, Temples, Strongholds, Passive mobs. |
 |3 | **Nether**     | Biomes (Crimson Forest, Soul Sand Valley), Fortresses, Bastions, Hostile mobs, Lava lakes. |
 |4 | **End**        | End islands, End cities, Endermen, Ender dragon, and rare structures. |
-|5 | **Fun Facts**  | Survival tips 101! Learn how to: <ul><li>Move from one world to another</li><li>Survive each world</li><li>Use tools and potions effectively</li><li>Craft essential items</li></ul> |
+|5 | **Fun Facts**  | Survival tips 101! Learn how to: 
+<ul><li>Move from one world to another
+</li><li>Survive each world
+</li><li>Use tools and potions effectively
+</li><li>Craft essential items</li></ul> |
 
 ---
 
