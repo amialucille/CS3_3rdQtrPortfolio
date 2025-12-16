@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Minecraft: Worlds Beyond</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #111;
+            color: #7CFF5B;
+            font-family: 'Pixelify Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
+
+
 <body>
+
 
     <!-- HEADER -->
     <header class="navbar">
@@ -15,8 +30,10 @@
             <h1>MINECRAFT: WORLDS BEYOND</h1>
         </div>
 
+
         <nav>
             <a href="index.html">HOME</a>
+
 
             <div class="dropdown">
                 <a href="#">DIMENSIONS</a>
@@ -27,53 +44,67 @@
                 </div>
             </div>
 
+
             <a href="public/funfacts.html">FUN FACTS</a>
             <a href="public/sources.html">SOURCES</a>
         </nav>
     </header>
 
+
     <!-- TITLE -->
     <h2 class="main-title">PORTALS OPEN, ADVENTURES BEGIN</h2>
 
-   <!-- DIMENSIONS -->
-<section class="dimensions">
 
-    <div class="dimension-card">
-        <img class="icon" src="assets/overworld.png" alt="Overworld Icon">
-        <a href="public/overworld.html">
-            <img class="portal" src="assets/portal.png" data-hover="assets/overworldportal.png" data-original="assets/portal.png" alt="Overworld Portal">
+    <!-- DIMENSIONS -->
+    <section class="dimensions">
+
+
+        <div class="dimension-card">
+            <img class="icon" src="assets/overworld.png" alt="Overworld Icon">
+            <a href="public/overworld.html">
+                <img class="portal" src="assets/portal.png" data-hover="assets/overworldportal.png"
+                    data-original="assets/portal.png" alt="Overworld Portal">
+            </a>
+            <h3><a href="public/overworld.html">THE OVERWORLD</a></h3>
+        </div>
+
+
+        <div class="dimension-card">
+            <img class="icon" src="assets/nether.png" alt="Nether Icon">
+            <a href="public/nether.html">
+                <img class="portal" src="assets/portal.png" data-hover="assets/netherportal.png"
+                    data-original="assets/portal.png" alt="Nether Portal">
+            </a>
+            <h3><a href="public/nether.html">THE NETHER</a></h3>
+        </div>
+
+
+        <div class="dimension-card">
+            <img class="icon" src="assets/end.png" alt="End Icon">
+            <a href="public/end.html">
+                <img class="portal" src="assets/portal.png" data-hover="assets/endportal.png"
+                    data-original="assets/portal.png" alt="End Portal">
+            </a>
+            <h3><a href="public/end.html">THE END</a></h3>
+        </div>
+
+
+    </section>
+
+
+    <!-- FUN FACTS BUTTON -->
+    <section class="fun-facts-section">
+        <a href="public/funfacts.html" class="fun-facts-button">
+            <img src="assets/book.png" alt="Book Icon" class="book-icon">
+            FUN FACTS
+            <img src="assets/book.png" alt="Book Icon" class="book-icon">
         </a>
-        <h3><a href="public/overworld.html">THE OVERWORLD</a></h3>
-    </div>
+    </section>
 
-    <div class="dimension-card">
-        <img class="icon" src="assets/nether.png" alt="Nether Icon">
-        <a href="public/nether.html">
-            <img class="portal" src="assets/portal.png" data-hover="assets/netherportal.png" data-original="assets/portal.png" alt="Nether Portal">
-        </a>
-        <h3><a href="public/nether.html">THE NETHER</a></h3>
-    </div>
-
-    <div class="dimension-card">
-        <img class="icon" src="assets/end.png" alt="End Icon">
-        <a href="public/end.html">
-            <img class="portal" src="assets/portal.png" data-hover="assets/endportal.png" data-original="assets/portal.png" alt="End Portal">
-        </a>
-        <h3><a href="public/end.html">THE END</a></h3>
-    </div>
-
-</section>
-
-<!-- FUN FACTS BUTTON -->
-<section class="fun-facts-section">
-    <a href="public/funfacts.html" class="fun-facts-button">
-        <img src="assets/book.png" alt="Book Icon" class="book-icon">
-        FUN FACTS
-        <img src="assets/book.png" alt="Book Icon" class="book-icon">
-    </a>
-</section>
 
     <!-- JS for hover portal images -->
     <script src="index.js"></script>
 </body>
+
+
 </html>
