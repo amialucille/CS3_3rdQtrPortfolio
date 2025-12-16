@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <title>The Overworld | Minecraft: Worlds Beyond</title>
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+
 
     <style>
         body {
@@ -14,6 +16,7 @@
             color: #fff;
             font-family: 'Pixelify Sans', sans-serif;
         }
+
 
         /* NAVBAR */
         .navbar {
@@ -24,15 +27,18 @@
             background-color: #222;
         }
 
+
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
+
         .logo img {
             width: 40px;
         }
+
 
         nav a {
             color: white;
@@ -41,15 +47,18 @@
             font-weight: bold;
         }
 
+
         nav a:hover {
             color: #c1ff72;
             text-decoration: underline;
         }
 
+
         /* OVERWORLD */
         .overworld {
             padding: 60px 80px;
         }
+
 
         .overworld-title {
             font-family: 'Pixelify Sans';
@@ -57,17 +66,20 @@
             margin-bottom: 20px;
         }
 
+
         .overworld-desc {
             border: 2px solid white;
             padding: 20px;
             margin-bottom: 50px;
         }
 
+
         .biomes-title {
-            font-family: monospace;
+            font-family: 'pixelify Sans';
             font-size: 2.5rem;
             margin-bottom: 30px;
         }
+
 
         /* BIOMES GRID */
         .biomes-grid {
@@ -76,10 +88,12 @@
             gap: 30px;
         }
 
+
         .biome-card {
             text-align: center;
             color: #ccc;
         }
+
 
         /* IMAGE BOX */
         .biome-img {
@@ -90,71 +104,118 @@
             background-position: center;
         }
 
+
         /* BIOME IMAGES */
         .plains {
             background-image: url("../assets/plains.png");
         }
 
+
         .snowyplains {
             background-image: url("../assets/snowplains.png");
         }
+
 
         .savanna {
             background-image: url("../assets/Savanna.png");
         }
 
+
         .jungle {
             background-image: url("../assets/jungle.png");
         }
+
 
         .oakforest {
             background-image: url("../assets/forest.png");
         }
 
+
         .birchforest {
             background-image: url("../assets/birchforest.png");
         }
+
 
         .darkforest {
             background-image: url("../assets/darkforest.png");
         }
 
+
         .taiga {
             background-image: url("../assets/taiga.png");
         }
+
 
         .cherrygrove {
             background-image: url("../assets/cherrygrov.png");
         }
 
+
         .palegarden {
             background-image: url("../assets/PaleGarden.png");
         }
+
 
         .deepdark {
             background-image: url("../assets/deepdark.png");
         }
 
+
         .lushcaves {
             background-image: url("../assets/lushcaves.png");
         }
+
 
         .dripstone {
             background-image: url("../assets/dripstonecaves.png");
         }
 
+
         .swamp {
             background-image: url("../assets/swamp.png");
         }
+
 
         .mangroveswamp {
             background-image: url("../assets/mangroveswamps.png");
         }
 
+
+        .badlands {
+            background-image: url("../assets/badlands.png");
+        }
+
+
+        .beach {
+            background-image: url("../assets/beach.png");
+        }
+
+
+        .desert {
+            background-image: url("../assets/desert.png");
+        }
+
+
+        .river {
+            background-image: url("../assets/river.png");
+        }
+
+
+        .ocean {
+            background-image: url("../assets/ocean.png");
+        }
+
+
+        .mushroomisland {
+            background-image: url("../assets/mushroomfields.png");
+        }
+
+
         .biome-desc {
             font-size: 0.85rem;
             margin-top: 15px;
         }
+
 
         .biome-includes {
             font-size: 0.75rem;
@@ -162,10 +223,12 @@
             color: #aaa;
         }
 
+
         .dropdown {
             position: relative;
             display: inline-block;
         }
+
 
         .dropdown-content {
             display: none;
@@ -177,6 +240,7 @@
             z-index: 100;
         }
 
+
         .dropdown-content a {
             display: block;
             padding: 8px 12px;
@@ -184,9 +248,11 @@
             text-decoration: none;
         }
 
+
         .dropdown-content a:hover {
             background-color: #333;
         }
+
 
         .dropdown:hover .dropdown-content {
             display: block;
@@ -194,7 +260,9 @@
     </style>
 </head>
 
+
 <body>
+
 
     <header class="navbar">
         <div class="logo">
@@ -202,8 +270,10 @@
             <h1>MINECRAFT: WORLDS BEYOND</h1>
         </div>
 
+
         <nav>
             <a href="../index.html">HOME</a>
+
 
             <div class="dropdown">
                 <a href="#">DIMENSIONS</a>
@@ -214,17 +284,23 @@
                 </div>
             </div>
 
+
             <a href="funfacts.html">FUN FACTS</a>
             <a href="sources.html">SOURCES</a>
         </nav>
 
+
         </div>
+
 
     </header>
 
+
     <section class="overworld">
 
+
         <h2 class="overworld-title">THE OVERWORLD:</h2>
+
 
         <div class="overworld-desc">
             <p>
@@ -233,12 +309,16 @@
                 This dimension features several events, which include the day-and-night cycle, dynamic weather, and a
                 massive variety of biomes and creatures that come with it.
 
+
             </p>
         </div>
 
+
         <h3 class="biomes-title">BIOMES:</h3>
 
+
         <div class="biomes-grid">
+
 
             <div class="biome-card">
                 <div class="biome-img plains"></div>
@@ -246,8 +326,14 @@
                 <p class="biome-desc"><u>The Plains</u> is a flat area that could possibly spawn a few trees, and where
                     animals are often found. They could also have a sunflower field variant, which is the only biome
                     sunflowers spawn in.</p>
-                <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
+                <p class="biome-includes">– STRUCTURES • PASSIVE • MOBS –</p>
+                <p class="biome-includes">Structures : Villages, Pillage Outposts.</p>
+                <p class="biome-includes">Resources : Dirt Wood, Flowers.</p>
+                <p class="biome-includes">Passive Mobs : Villagers, Cows, Sheep, Pigs, Chickens, Horses, Donkeys</p>
+                <p class="biome-includes">Hostile Mobs : Zombies, Skeletons, Creepers, Pillagers</p>
+                </p>
             </div>
+
 
             <div class="biome-card">
                 <div class="biome-img snowyplains"></div>
@@ -255,7 +341,13 @@
                 <p class="biome-desc">Similar to Plains, <u>Snowy Plains</u> is a relatively large and flat area is
                     covered in snow and ice. It has other variants like Ice Plains and Ice Spike Plains.</u></p>
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
+                <p class="biome-includes">Structures : Villages, Pillage Outposts, Igloos.</p>
+                <p class="biome-includes">Resources : Snow, Ice.</p>
+                <p class="biome-includes">Passive Mobs : Foxes, Rabbits</p>
+                <p class="biome-includes">Hostile Mobs : Polar Bears, Zombies, Skeletons, Creepers, Pillagers</p>
+                </p>
             </div>
+
 
             <div class="biome-card">
                 <div class="biome-img savanna"></div>
@@ -265,6 +357,7 @@
                 </p>
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
+
 
             <div class="biome-card">
                 <div class="biome-img oakforest"></div>
@@ -362,7 +455,7 @@
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img Badlands"></div>
+                <div class="biome-img badlands"></div>
                 <p class="biome-desc">Badlands</p>
                 <p class="biome-desc"><u>Badlands</u> are large deserts that contain red sand and terracotta. There is
                     a Wooded variant of the Badlands where oak trees can spawn and it is often covered in coarse dirt.
@@ -370,7 +463,7 @@
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img Beach"></div>
+                <div class="biome-img beach"></div>
                 <p class="biome-desc">Beach</p>
                 <p class="biome-desc"><u>Beaches</u> are areas that are covered in sand and are often beside an ocean.
                     Oftentimes, this is where buried treasure can be found.
@@ -378,21 +471,21 @@
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img Desert"></div>
+                <div class="biome-img desert"></div>
                 <p class="biome-desc">Desert</p>
                 <p class="biome-desc"><u>Deserts</u> are large areas that covered in sand, sandstone, and where cacti
                     often spawn. The desert is the only biome where Husks can spawn in. </p>
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img River"></div>
+                <div class="biome-img river"></div>
                 <p class="biome-desc">River</p>
                 <p class="biome-desc"><u>Rivers</u> are long lines of water that usually lead to oceans. They often have
                     sources of clay that can be used by the player.</p>
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img Ocean"></div>
+                <div class="biome-img ocean"></div>
                 <p class="biome-desc">Ocean</p>
                 <p class="biome-desc"><u>Oceans</u> are large bodies of water that has seagrass, kelp and fish. There
                     are also several variants of Oceans that varies based on temperature.
@@ -400,7 +493,7 @@
                 <p class="biome-includes">– STRUCTURES • RESOURCES • MOBS –</p>
             </div>
             <div class="biome-card">
-                <div class="biome-img MushroomField"></div>
+                <div class="biome-img mushroomisland"></div>
                 <p class="biome-desc">Mushroom Field</p>
                 <p class="biome-desc"><u>Mushroom Fields</u> are small islands that are made with mycelium and is
                     covered by tall mushroom trees. These are a rare biome and is also the only biome where you can
@@ -410,6 +503,8 @@
         </div>
     </section>
 
+
 </body>
+
 
 </html>
