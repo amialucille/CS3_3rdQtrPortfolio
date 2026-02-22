@@ -87,28 +87,30 @@
 <body>
 
     <!-- HEADER -->
-    <header class="navbar">
-        <div class="logo">
-            <img src="../assets/creeperlogo.png" alt="Creeper Logo">
-            <h1>MINECRAFT: WORLDS BEYOND</h1>
+    <header
+    style="display: flex; justify-content: space-between; align-items: center; background-color: #222; padding: 15px 30px;">
+    <div style="display: flex; align-items: center;">
+        <img src="../assets/creeperlogo.png" alt="Creeper Logo" style="height: 50px;">
+        <h1 style="color: #BFE57F; margin-left: 10px;">MINECRAFT: WORLDS BEYOND</h1>
+    </div>
+    <nav>
+        <a href="../index.html">HOME</a>
+
+
+        <div class="dropdown">
+        <a href="#">DIMENSIONS</a>
+        <div class="dropdown-content">
+            <a href="overworld.html">Overworld</a>
+            <a href="nether.html">Nether</a>
+            <a href="end.html">The End</a>
+        </div>
         </div>
 
-        <nav>
-            <a href="index.html">HOME</a>
 
-            <div class="dropdown">
-                <a href="#">DIMENSIONS</a>
-                <div class="dropdown-content">
-                    <a href="overworld.html">Overworld</a>
-                    <a href="nether.html">Nether</a>
-                    <a href="end.html">The End</a>
-                </div>
-            </div>
-
-            <a href="funfacts.html">FUN FACTS</a>
-            <a href="../coords.html">COORDINATES</a>
-            <a href="sources.html">SOURCES</a>
-        </nav>
+        <a href="funfacts.html">FUN FACTS</a>
+        <a href="coords.html">COORDINATES</a>
+        <a href="../public/sources.html">SOURCES</a>
+    </nav>
     </header>
 
 
@@ -122,27 +124,42 @@
 
         <form id="coordForm" style="max-width:700px; margin:40px auto; display:flex; flex-direction:column; gap:15px;">
             <label>Username:</label>
-            <input type="text" id="username" placeholder="Enter username">
+            <input type="text" id="username" placeholder="Enter username" required>
 
             <label>Title:</label>
-            <input type="text" id="title" placeholder="Structure Title">
+            <input type="text" id="title" placeholder="Structure Title" required>
 
-            <label>Dimension:</label>
-            <input type="text" id="dimension" placeholder="Overworld / Nether / End">
+           <label>Dimension:</label>
+            <div class="dimension-options">
+            <label>
+                <input type="radio" name="dimension" value="Overworld"> Overworld
+            </label>
+
+            <label>
+                <input type="radio" name="dimension" value="Nether"> Nether
+            </label>
+
+            <label>
+                <input type="radio" name="dimension" value="End"> End
+            </label>
+            </div>
 
             <label>Description:</label>
-            <input type="text" id="description" placeholder="Input Descripton">
+            <input type="text" id="description" placeholder="Input Descripton" required>
 
 
             <label>Coordinates:</label>
-            <input type="text" id="coords" placeholder="X,Y,Z">
+            <div class="coord-inputs">
+            <input type="number" id="coordX" placeholder="X" required>
+            <input type="number" id="coordY" placeholder="Y" required>
+            <input type="number" id="coordZ" placeholder="Z" required>
+            </div>
 
             <label>Picture:</label>
             <input type="file" id="image" accept="image/*">
 
             <div style="display:flex; justify-content: space-between; align-items:center; margin-top:10px;">
                 <button type="submit" class="save">Save</button>
-                <button type="button" id="resetBtn">Restart</button>
             </div>
         </form>
         <!-- SAVED LIST -->

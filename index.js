@@ -15,46 +15,59 @@ portals.forEach(portal => {
 const form = document.getElementById("coordForm");
 
 if(form){
-form.addEventListener("submit", function(e){
-    e.preventDefault();
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
 
-    const title = document.getElementById("title").value;
-    const dimension = document.querySelector('input[name="dimension"]:checked')?.value;
-    const type = document.querySelector('input[name="type"]:checked')?.value;
-    const which = document.getElementById("which").value;
-    const x = document.getElementById("x").value;
-    const y = document.getElementById("y").value;
-    const z = document.getElementById("z").value;
+        const username = document.getElementById("username").value.trim();
+        const title = document.getElementById("title").value.trim();
+        const dimension = document.querySelector('input[name="dimension"]:checked')?.value;
+        const description = document.getElementById("description").value.trim();
+        const x = document.getElementById("coordX").value.trim();
+        const y = document.getElementById("coordY").value.trim();
+        const z = document.getElementById("coordZ").value.trim();
+        const imageInput = document.getElementById("image");
 
-    const entry = {
-        title, dimension, type, which, x, y, z
-    };
+        // Check required fields
+        if (!username || !title || !dimension || !description || !x || !y || !z) {
+            alert("Please fill in all required fields!");
+            return;
+        }
 
-    let saved = JSON.parse(localStorage.getItem("minecraftCoords")) || [];
-    saved.push(entry);
+        const coords = { x, y, z };
 
-    localStorage.setItem("minecraftCoords", JSON.stringify(saved));
+        // Handle image file
+        const reader = new FileReader();
+        reader.onload = function () {
+            const imgSrc = reader.result || "assets/placeholder.png";
 
-    alert("Coordinate Saved!");
-    form.reset();
-});
-}
+            // Get existing saved data
+            let savedData = JSON.parse(localStorage.getItem("coordsData")) || [];
 
-// show saved
-function showSaved(){
+            // Add new entry
+            savedData.push({
+                username,
+                title,
+                dimension,
+                description,
+                coords,
+                imgSrc
+            });
 
-    const container = document.getElementById("savedList");
-    container.innerHTML = "<h3>Saved Coordinates:</h3>";
+            // Save back to localStorage
+            localStorage.setItem("coordsData", JSON.stringify(savedData));
 
-    let saved = JSON.parse(localStorage.getItem("minecraftCoords")) || [];
+            alert("Your info has been saved! ✅");
 
-    saved.forEach(item=>{
-        container.innerHTML += `
-        <p>
-        ${item.title} — ${item.dimension} — ${item.type} (${item.which}) → 
-        X:${item.x} Y:${item.y} Z:${item.z}
-        </p>
-        `;
+            // Reset form except username
+            form.reset();
+            document.getElementById("username").value = username;
+        };
+
+        if (imageInput.files[0]) {
+            reader.readAsDataURL(imageInput.files[0]);
+        } else {
+            reader.onload(); // call manually if no image
+        }
     });
 }
 
@@ -64,84 +77,14 @@ function clearForm(){
 }
 
 // SAVE username
-document.getElementById("username").addEventListener("input", function () {
-  localStorage.setItem("savedUsername", this.value);
+document.getElementById("username")?.addEventListener("input", function () {
+    localStorage.setItem("savedUsername", this.value);
 });
 
 // LOAD username when page opens
 window.addEventListener("DOMContentLoaded", function () {
-  const savedName = localStorage.getItem("savedUsername");
-
-  if (savedName) {
-    document.getElementById("username").value = savedName;
-  }
-});
-
-// Auto-load username from localStorage
-// index.js (or coords.js if you want)
-window.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("coordForm");
-
-  // Auto-fill username
-  const savedName = localStorage.getItem("savedUsername");
-  if (savedName) document.getElementById("username").value = savedName;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const username = document.getElementById("username").value.trim();
-    const title = document.getElementById("title").value.trim();
-    const dimension = document.getElementById("dimension").value.trim();
-    const type = document.getElementById("type").value.trim();
-    const which = document.getElementById("which").value.trim();
-    const coords = document.getElementById("coords").value.trim();
-    const imgInput = document.getElementById("image");
-
-    if (!username || !title || !dimension || !type || !which || !coords) {
-      alert("Please fill in all fields before saving!");
-      return;
+    const savedName = localStorage.getItem("savedUsername");
+    if (savedName) {
+        document.getElementById("username").value = savedName;
     }
-
-    // Save username
-    localStorage.setItem("savedUsername", username);
-
-    // Handle image
-    const reader = new FileReader();
-    reader.onload = function () {
-      const imgSrc = reader.result || "assets/default.png";
-
-      // Get saved coordinates array from localStorage
-      const savedCoords = JSON.parse(localStorage.getItem("coordsData")) || [];
-
-      // Add new entry
-      savedCoords.push({
-        username,
-        title,
-        dimension,
-        type,
-        which,
-        coords,
-        imgSrc
-      });
-
-      // Save back to localStorage
-      localStorage.setItem("coordsData", JSON.stringify(savedCoords));
-
-      // Reset form except username
-      form.reset();
-      document.getElementById("username").value = username;
-
-      alert("Your info has been saved!");
-    };
-
-    if (imgInput.files[0]) reader.readAsDataURL(imgInput.files[0]);
-    else reader.onload();
-  });
-
-  document.getElementById("resetBtn").addEventListener("click", () => {
-    form.reset();
-    localStorage.removeItem("savedUsername");
-  });
-
 });
-

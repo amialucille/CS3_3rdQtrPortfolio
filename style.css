@@ -505,6 +505,25 @@ nav a:hover {
   margin-top: 10px;
 }
 
+.dimension-options {
+    display: flex;
+    gap: 25px;        /* space between options */
+    align-items: center;
+}
+
+.dimension-options input[type="radio"] {
+    accent-color: rgb(155, 78, 231);
+}
+
+.coord-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.coord-inputs input {
+    flex: 1;
+}
+
 /* ---------- SAVED CARDS ---------- */
 #savedCards {
   margin-top: 30px;

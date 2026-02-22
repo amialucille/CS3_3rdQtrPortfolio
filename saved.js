@@ -1,7 +1,7 @@
 // Load saved coordinates from localStorage
 const container = document.getElementById("savedContainer");
 
-let saved = JSON.parse(localStorage.getItem("minecraftCoords")) || [];
+let saved = JSON.parse(localStorage.getItem("coordsData")) || [];
 
 if(saved.length === 0){
     container.innerHTML = "<p>No saved coordinates yet.</p>";
@@ -15,91 +15,22 @@ saved.forEach(item => {
     card.innerHTML = `
         <!-- LEFT HALF -->
         <div class="card-left">
-            <!-- later you can replace with real structure image -->
+            <img src="${item.imgSrc}" alt="Structure Image" style="width:100px; height:100px; object-fit:cover;">
         </div>
 
         <!-- RIGHT HALF -->
         <div class="card-right">
-            <div>${item.username || "user"}</div>
-            <div>${item.title}</div>
-            <div>${item.dimension}</div>
-            <div>${item.type}</div>
-            <div>${item.which}</div>
+            <div><strong>Username:</strong> ${item.username}</div>
+            <div><strong>Title:</strong> ${item.title}</div>
+            <div><strong>Dimension:</strong> ${item.dimension}</div>
+            <div><strong>Description:</strong> ${item.description}</div>
 
-            <!-- default inline coordinates -->
+            <!-- inline coordinates -->
             <div class="coords-inline">
-                ${item.x}, ${item.y}, ${item.z}
+                <strong>Coordinates:</strong> X:${item.coords.x} Y:${item.coords.y} Z:${item.coords.z}
             </div>
-
-            <!-- expanded on hover -->
-            <div class="coords-expanded">
-        ${item.coords.split(',').map((c, i) => {
-            const label = ['X','Y','Z'][i] || '';
-            return `<p>${label}: ${c.trim()}</p>`;
-        }).join('')}
-        </div>
         </div>
     `;
 
     container.appendChild(card);
-});
-
-// index.js
-
-const coordForm = document.getElementById("coordForm");
-
-coordForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // prevent page reload
-
-    // Grab form values
-    const username = document.getElementById("username").value;
-    const title = document.getElementById("title").value;
-    const dimension = document.getElementById("dimension").value;
-    const type = document.getElementById("type").value;
-    const which = document.getElementById("which").value;
-    const coords = document.getElementById("coords").value;
-    const imageInput = document.getElementById("image");
-
-    // Convert image to base64 so we can store it
-    const reader = new FileReader();
-    reader.onload = function() {
-        const imgSrc = reader.result;
-
-        // Get previous saved data
-        const savedData = JSON.parse(localStorage.getItem("coordsData")) || [];
-
-        // Add new entry
-        savedData.push({ username, title, dimension, type, which, coords, imgSrc });
-
-        // Save back to localStorage
-        localStorage.setItem("coordsData", JSON.stringify(savedData));
-
-        alert("Your info was saved! ✅");
-
-        // Optional: clear form except username
-        document.getElementById("title").value = "";
-        document.getElementById("dimension").value = "";
-        document.getElementById("type").value = "";
-        document.getElementById("which").value = "";
-        document.getElementById("coords").value = "";
-        document.getElementById("image").value = "";
-    };
-
-    if (imageInput.files[0]) {
-        reader.readAsDataURL(imageInput.files[0]);
-    } else {
-        // If no image, save anyway with placeholder
-        const imgSrc = "assets/placeholder.png"; // optional default image
-        const savedData = JSON.parse(localStorage.getItem("coordsData")) || [];
-        savedData.push({ username, title, dimension, type, which, coords, imgSrc });
-        localStorage.setItem("coordsData", JSON.stringify(savedData));
-        alert("Your info was saved! ✅");
-
-        // Clear form except username
-        document.getElementById("title").value = "";
-        document.getElementById("dimension").value = "";
-        document.getElementById("type").value = "";
-        document.getElementById("which").value = "";
-        document.getElementById("coords").value = "";
-    }
 });
