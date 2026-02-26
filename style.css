@@ -557,12 +557,12 @@ nav a:hover {
 .card-info {
   width: 50%;
   padding: 15px 20px;
-  text-align: left;  /* LEFT justified */
+  text-align: left;
   color: white;
 }
 
 .card-info p {
-  margin: 4px 0; /* smaller spacing */
+  margin: 4px 0;
 }
 
 .username {
@@ -601,3 +601,4 @@ nav a:hover {
   transform: scale(1.05);
   background-color: #ff5c8d;
 }
+
