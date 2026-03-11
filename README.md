@@ -28,19 +28,6 @@ Explore biomes, buildings, mobs, and materials from each dimension while learnin
 |7 | **Coordinates Saved Page**  | Saved coordinates of builds or biomes that players want to save. |
 |8 | **Coordinates Form Page**  | Here, visitors can input the information of the coordinates of a build or biome here. |
 
----
-
-## JavaScript Incorporation 
-- **Interactive Portal Animation**: Hovering over each portal on the homepage reveals a preview of the corresponding dimension.  
-- **Random Biome Generator**: A button that displays a random biome from any of the three worlds (Overworld, Nether, End).  
-- **Optional Feature**: Collapsible info boxes for mobs or structures to keep pages neat and readable.  
-
----
-
-## HTML Form Incorporation
-The Html form will require the user to input different types of information about the coordinates of a biome or build of their choice. Here, it will record all of the saved coordinates throughout their world.
----
-
 ## Wireframe/Mockup
 ### 🏠 Homepage
 ![Homepage Wireframe](./images/Homepage.png)
@@ -57,8 +44,22 @@ The Html form will require the user to input different types of information abou
 ### 💡 Content Page 1 - Fun Facts
 ![Fun Facts Wireframe](./images/FunFacts.png)
 
+
+---
+
+## JavaScript Incorporation 
+- **Interactive Portal Animation**: Hovering over each portal on the homepage reveals a preview of the corresponding dimension.  
+- **Random Biome Generator**: A button that displays a random biome from any of the three worlds (Overworld, Nether, End).  
+- **Optional Feature**: Collapsible info boxes for mobs or structures to keep pages neat and readable.  
+
+---
+
+# FINAL MODIFICATION PROPOSAL
+The Html form will require the user to input different types of information about the coordinates of a biome or build of their choice. Here, it will record all of the saved coordinates throughout their world.
+---
+
 ### Coordinates Page - Home Page
-![Saving Coordinates Home page](./images/Coords%20home%20page.png)
+![Saving Coordinates Home page](./images/Coords%20home%20page.png) 
 
 ### Coordinates Page - Saved Page
 ![Saving Coordinates Home page](./images/Saved%20Coordinates.png)
