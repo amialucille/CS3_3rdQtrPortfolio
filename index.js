@@ -27,7 +27,6 @@ if(form){
         const z = document.getElementById("coordZ").value.trim();
         const imageInput = document.getElementById("image");
 
-        // Check required fields
         if (!username || !title || !dimension || !description || !x || !y || !z) {
             alert("Please fill in all required fields!");
             return;
@@ -35,30 +34,43 @@ if(form){
 
         const coords = { x, y, z };
 
-        // Handle image file
         const reader = new FileReader();
         reader.onload = function () {
             const imgSrc = reader.result || "assets/placeholder.png";
 
-            // Get existing saved data
             let savedData = JSON.parse(localStorage.getItem("coordsData")) || [];
 
-            // Add new entry
-            savedData.push({
-                username,
-                title,
-                dimension,
-                description,
-                coords,
-                imgSrc
-            });
+            let editObj = JSON.parse(localStorage.getItem("editData"));
 
-            // Save back to localStorage
+            if (editObj) {
+                // UPDATE EXISTING
+                savedData[editObj.index] = {
+                    username,
+                    title,
+                    dimension,
+                    description,
+                    coords,
+                    imgSrc
+                };
+
+                localStorage.removeItem("editData");
+                alert("Updated successfully! ✏️");
+            } else {
+                // NORMAL SAVE
+                savedData.push({
+                    username,
+                    title,
+                    dimension,
+                    description,
+                    coords,
+                    imgSrc
+                });
+
+                alert("Your info has been saved! ✅");
+            }
+
             localStorage.setItem("coordsData", JSON.stringify(savedData));
 
-            alert("Your info has been saved! ✅");
-
-            // Reset form except username
             form.reset();
             document.getElementById("username").value = username;
         };
@@ -66,7 +78,7 @@ if(form){
         if (imageInput.files[0]) {
             reader.readAsDataURL(imageInput.files[0]);
         } else {
-            reader.onload(); // call manually if no image
+            reader.onload();
         }
     });
 }
@@ -81,10 +93,33 @@ document.getElementById("username")?.addEventListener("input", function () {
     localStorage.setItem("savedUsername", this.value);
 });
 
-// LOAD username when page opens
+// LOAD username + EDIT DATA
 window.addEventListener("DOMContentLoaded", function () {
     const savedName = localStorage.getItem("savedUsername");
     if (savedName) {
         document.getElementById("username").value = savedName;
+    }
+
+    const editObj = JSON.parse(localStorage.getItem("editData"));
+
+    if (editObj) {
+        const { data } = editObj;
+
+        document.getElementById("username").value = data.username;
+        document.getElementById("title").value = data.title;
+        document.getElementById("description").value = data.description;
+        document.getElementById("coordX").value = data.coords.x;
+        document.getElementById("coordY").value = data.coords.y;
+        document.getElementById("coordZ").value = data.coords.z;
+
+        const radios = document.querySelectorAll('input[name="dimension"]');
+        radios.forEach(r => {
+            if (r.value === data.dimension) {
+                r.checked = true;
+            }
+        });
+
+        const saveBtn = document.querySelector(".save");
+        if(saveBtn) saveBtn.textContent = "Update";
     }
 });

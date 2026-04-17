@@ -86,15 +86,13 @@
 window.addEventListener("DOMContentLoaded", () => {
     const savedContainer = document.getElementById("savedContainer");
 
-    // Get dimension from URL (Overworld, Nether, End)
     const urlParams = new URLSearchParams(window.location.search);
     const currentDimension = urlParams.get("dimension");
 
     function renderCards() {
-        savedContainer.innerHTML = ""; // clear existing cards
+        savedContainer.innerHTML = "";
         let savedCoords = JSON.parse(localStorage.getItem("coordsData")) || [];
 
-        // Filter by selected dimension if available
         if(currentDimension){
             savedCoords = savedCoords.filter(item => item.dimension === currentDimension);
         }
@@ -107,6 +105,7 @@ window.addEventListener("DOMContentLoaded", () => {
         savedCoords.forEach((item, index) => {
             const card = document.createElement("div");
             card.classList.add("saved-card");
+
             card.innerHTML = `
             <div class="card-image">
                 <img src="${item.imgSrc}" alt="Structure Image">
@@ -119,26 +118,44 @@ window.addEventListener("DOMContentLoaded", () => {
                 <p class="coords">
                     <span class="coords-default">X:${item.coords.x} Y:${item.coords.y} Z:${item.coords.z}</span>
                 </p>
+
+                <button class="edit-btn" data-index="${index}">Edit</button>
                 <button class="delete-btn" data-index="${index}">Delete</button>
             </div>
             `;
             savedContainer.appendChild(card);
         });
 
-        // attach delete events
-        const deleteButtons = document.querySelectorAll(".delete-btn");
-        deleteButtons.forEach(btn => {
+        // DELETE
+        document.querySelectorAll(".delete-btn").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const idx = e.target.dataset.index;
                 let allSaved = JSON.parse(localStorage.getItem("coordsData")) || [];
-                allSaved.splice(idx, 1); // remove from array
+                allSaved.splice(idx, 1);
                 localStorage.setItem("coordsData", JSON.stringify(allSaved));
-                renderCards(); // re-render cards
+                renderCards();
+            });
+        });
+
+        // EDIT
+        document.querySelectorAll(".edit-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const idx = e.target.dataset.index;
+                let allSaved = JSON.parse(localStorage.getItem("coordsData")) || [];
+
+                const selected = allSaved[idx];
+
+                localStorage.setItem("editData", JSON.stringify({
+                    data: selected,
+                    index: idx
+                }));
+
+                window.location.href = "savingcoords.html";
             });
         });
     }
 
-    renderCards(); // initial render
+    renderCards();
 });
 </script>
 
